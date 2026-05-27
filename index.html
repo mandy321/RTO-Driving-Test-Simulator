@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RTO Driving Test Simulator - Vector Physics Edition</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            mono: ['Share Tech Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+  <!-- Custom CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans select-none">
+
+  <!-- Header / Navbar (sleek & thin) -->
+  <header class="glass-panel border-b border-white/5 py-3 px-6 flex justify-between items-center z-10">
+    <div class="flex items-center space-x-3">
+      <div class="bg-gradient-to-tr from-amber-500 to-orange-600 p-2 rounded-lg shadow-lg shadow-orange-500/20">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white animate-spin-slow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-dasharray="4 4" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2" />
+        </svg>
+      </div>
+      <div>
+        <h1 class="text-lg font-bold tracking-wider bg-gradient-to-r from-slate-100 to-slate-400 bg-clip-text text-transparent">
+          RTO DRIVING TEST SIMULATOR
+        </h1>
+        <p class="text-xs text-slate-500 font-semibold tracking-widest uppercase">Automated Driving Test Track (ADTT)</p>
+      </div>
+    </div>
+    
+    <div class="flex items-center space-x-4">
+      <div class="flex items-center space-x-2 bg-slate-900/80 px-3 py-1.5 rounded-full border border-white/5 text-xs text-slate-400">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+        <span class="font-medium tracking-wide">SYSTEM READY</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Split-Screen Dashboard -->
+  <main class="flex-1 flex overflow-hidden">
+    
+    <!-- Sidebar Control & Telemetry Panel (25% Width) -->
+    <aside class="w-80 lg:w-[28rem] flex-shrink-0 glass-panel border-r border-white/5 p-6 flex flex-col justify-between overflow-y-auto z-10">
+      
+      <div class="space-y-6">
+        
+        <!-- Track Selector -->
+        <div>
+          <h2 class="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-3 flex items-center space-x-2">
+            <svg class="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L16 4m0 13V4m0 0L9 7" />
+            </svg>
+            <span>Select Test Track</span>
+          </h2>
+          <div class="grid grid-cols-1 gap-2.5">
+            <button id="track-btn-8" class="btn-transition text-left px-4 py-3 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group">
+              <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="font-semibold text-sm text-slate-200">8-Track (Figure 8)</h3>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Tests dual-curve continuous steering</p>
+                </div>
+                <div class="w-5 h-5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-8">
+                  <div class="w-2.5 h-2.5 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-8"></div>
+                </div>
+              </div>
+            </button>
+            
+            <button id="track-btn-H" class="btn-transition text-left px-4 py-3 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group">
+              <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="font-semibold text-sm text-slate-200">H-Track (Reverse S)</h3>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Tests reversing, turning, and pockets</p>
+                </div>
+                <div class="w-5 h-5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-H">
+                  <div class="w-2.5 h-2.5 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-H"></div>
+                </div>
+              </div>
+            </button>
+            
+            <button id="track-btn-parking" class="btn-transition text-left px-4 py-3 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group">
+              <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+              <div class="flex justify-between items-center">
+                <div>
+                  <h3 class="font-semibold text-sm text-slate-200">Parallel Parking</h3>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Tests maneuvering into tight bay</p>
+                </div>
+                <div class="w-5 h-5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-parking">
+                  <div class="w-2.5 h-2.5 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-parking"></div>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Vehicle Selection -->
+        <div>
+          <h2 class="text-xs font-semibold tracking-wider text-slate-400 uppercase mb-3 flex items-center space-x-2">
+            <svg class="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+            </svg>
+            <span>Select Vehicle Model</span>
+          </h2>
+          <div class="grid grid-cols-2 gap-3">
+            <button id="vehicle-btn-hatchback" class="btn-transition px-4 py-3 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group text-center flex flex-col items-center">
+              <span class="font-semibold text-sm text-slate-200">Hatchback</span>
+              <span class="text-[10px] text-slate-500 mt-1 font-mono">Short WB • Agile</span>
+            </button>
+            <button id="vehicle-btn-sedan" class="btn-transition px-4 py-3 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group text-center flex flex-col items-center">
+              <span class="font-semibold text-sm text-slate-200">Sedan</span>
+              <span class="text-[10px] text-slate-500 mt-1 font-mono">Long WB • Harder</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Telemetry & Dashboard -->
+        <div class="glass-panel-light border border-white/5 rounded-2xl p-4 space-y-4">
+          <div class="flex items-center justify-between">
+            <h2 class="text-xs font-semibold tracking-wider text-slate-400 uppercase">Live Telemetry</h2>
+            <span class="text-[10px] text-orange-500 font-mono tracking-widest uppercase">ACTIVE STREAM</span>
+          </div>
+
+          <!-- Speed & Gear Row -->
+          <div class="grid grid-cols-2 gap-3">
+            <!-- Speedometer -->
+            <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex flex-col items-center justify-center relative overflow-hidden">
+              <svg class="w-16 h-16 transform -rotate-90">
+                <circle cx="32" cy="32" r="26" stroke="rgba(255,255,255,0.05)" stroke-width="4" fill="transparent"/>
+                <circle id="speedometer-gauge" cx="32" cy="32" r="26" stroke="url(#speed-gradient)" stroke-dasharray="163" stroke-dashoffset="163" stroke-width="4" fill="transparent" class="speedometer-ring" stroke-linecap="round"/>
+                <defs>
+                  <linearGradient id="speed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#f97316"/>
+                    <stop offset="100%" stop-color="#e11d48"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="absolute text-center mt-[-4px]">
+                <div id="telemetry-speed" class="font-mono text-xl font-bold leading-none text-slate-100">0</div>
+                <div class="text-[9px] text-slate-500 uppercase tracking-widest mt-0.5">km/h</div>
+              </div>
+            </div>
+
+            <!-- Transmission Gear -->
+            <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex flex-col items-center justify-center">
+              <span class="text-[10px] text-slate-500 uppercase tracking-widest mb-1.5">Transmission</span>
+              <div class="flex space-x-3 items-center font-mono text-lg font-bold">
+                <div id="gear-d" class="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center text-slate-500 transition-all duration-300">D</div>
+                <div id="gear-r" class="w-8 h-8 rounded-full border border-white/5 flex items-center justify-center text-slate-500 transition-all duration-300">R</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Time Remaining -->
+          <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex justify-between items-center">
+            <div class="flex flex-col">
+              <span class="text-[10px] text-slate-500 uppercase tracking-widest">Time Remaining</span>
+              <span class="text-[10px] text-slate-500 italic mt-0.5 font-sans">90s test limit</span>
+            </div>
+            <div id="telemetry-timer" class="font-mono text-3xl font-bold text-orange-500 tracking-wider">90.0<span class="text-lg">s</span></div>
+          </div>
+
+          <!-- Penalties & Cones -->
+          <div class="space-y-2.5">
+            <!-- Line Crosses -->
+            <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex justify-between items-center">
+              <div class="flex flex-col">
+                <span class="text-[10px] text-slate-500 uppercase tracking-widest">Boundary Infractions</span>
+                <span class="text-[10px] text-red-500/80 font-medium mt-0.5">Max 3 allowed</span>
+              </div>
+              <div class="flex space-x-2">
+                <div id="penalty-led-1" class="w-4.5 h-4.5 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-[10px] font-bold text-red-900 transition-all duration-300">1</div>
+                <div id="penalty-led-2" class="w-4.5 h-4.5 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-[10px] font-bold text-red-900 transition-all duration-300">2</div>
+                <div id="penalty-led-3" class="w-4.5 h-4.5 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-[10px] font-bold text-red-900 transition-all duration-300">3</div>
+              </div>
+            </div>
+
+            <!-- Cone Hits -->
+            <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex justify-between items-center">
+              <div>
+                <span class="text-[10px] text-slate-500 uppercase tracking-widest">Cone Collisions</span>
+                <span class="text-[10px] text-orange-500/80 font-medium block mt-0.5">Instant failure</span>
+              </div>
+              <div id="telemetry-cones" class="font-mono text-xl font-bold text-slate-400">0</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Footer / Actions -->
+      <div class="space-y-4 pt-4 border-t border-white/5">
+        <button id="restart-btn" class="w-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-orange-500/10 hover:shadow-orange-500/20 active:scale-[0.98] transition-all flex items-center justify-center space-x-2">
+          <svg class="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
+          </svg>
+          <span>Restart Simulator (R)</span>
+        </button>
+
+        <div class="text-[11px] text-slate-500 leading-relaxed bg-slate-950/40 p-3 rounded-lg border border-white/5">
+          <div class="font-semibold text-slate-400 mb-1 flex items-center space-x-1">
+            <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>Keyboard Controls</span>
+          </div>
+          <div class="grid grid-cols-2 gap-x-2 gap-y-0.5 font-mono">
+            <div><span class="text-slate-400 font-sans font-bold">↑ / W</span> : Gas</div>
+            <div><span class="text-slate-400 font-sans font-bold">↓ / S</span> : Brake/Rev</div>
+            <div><span class="text-slate-400 font-sans font-bold">← / A</span> : Steer L</div>
+            <div><span class="text-slate-400 font-sans font-bold">→ / D</span> : Steer R</div>
+          </div>
+          <div class="mt-1.5 pt-1.5 border-t border-white/5 flex justify-between text-[10px]">
+            <span>Spacebar : Brake</span>
+            <span>Shift : Switch Gear</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Canvas Area (75% Width) -->
+    <section class="flex-1 flex items-center justify-center p-6 relative bg-slate-950">
+      
+      <!-- Grid Overlay for background styling -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(30,41,59,0.3)_0%,rgba(2,6,17,1)_80%)] pointer-events-none"></div>
+      
+      <!-- Canvas Wrapper with glowing border -->
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-orange-500/5 border border-white/10 bg-slate-900">
+        
+        <!-- Subtle dynamic scanline/overlay effects -->
+        <div class="absolute top-2 left-3 z-10 bg-slate-900/90 border border-white/5 px-2.5 py-1 rounded text-[10px] font-mono tracking-wider text-slate-400 flex items-center space-x-1.5 pointer-events-none">
+          <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+          <span id="track-name-overlay">TRACK: 8-TRACK</span>
+        </div>
+
+        <div class="absolute top-2 right-3 z-10 bg-slate-900/90 border border-white/5 px-2.5 py-1 rounded text-[10px] font-mono tracking-wider text-slate-400 pointer-events-none" id="vehicle-name-overlay">
+          VEHICLE: HATCHBACK
+        </div>
+
+        <!-- The Canvas -->
+        <canvas id="gameCanvas" width="800" height="600" class="block bg-slate-900"></canvas>
+      </div>
+
+      <!-- Result Modals Overlay (hidden by default) -->
+      <div id="result-modal" class="absolute inset-0 bg-slate-950/85 backdrop-blur-md flex items-center justify-center z-20 hidden transition-opacity duration-300 opacity-0">
+        
+        <!-- Win (PASSED) Card -->
+        <div id="modal-passed-card" class="glass-panel border-emerald-500/30 rounded-3xl p-8 max-w-md w-full mx-4 text-center transform scale-95 transition-transform duration-300 hidden">
+          <div class="w-20 h-20 mx-auto rounded-full bg-emerald-500/10 border-2 border-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 mb-6">
+            <svg class="w-10 h-10 text-emerald-500 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          
+          <h2 class="text-3xl font-extrabold tracking-wider text-emerald-400 bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent uppercase mb-2">
+            TEST PASSED
+          </h2>
+          <p class="text-slate-400 text-sm mb-6">Congratulations! You have successfully completed the driving license simulation test.</p>
+          
+          <!-- Statistics -->
+          <div class="grid grid-cols-2 gap-3 mb-6 bg-slate-950/50 p-4 rounded-2xl border border-white/5">
+            <div class="text-center">
+              <span class="text-[10px] text-slate-500 uppercase tracking-wider block">Time Elapsed</span>
+              <span id="modal-pass-time" class="font-mono text-xl font-semibold text-slate-200">0s</span>
+            </div>
+            <div class="text-center border-l border-white/5">
+              <span class="text-[10px] text-slate-500 uppercase tracking-wider block">Boundaries Crossed</span>
+              <span id="modal-pass-penalties" class="font-mono text-xl font-semibold text-slate-200">0 / 3</span>
+            </div>
+          </div>
+          
+          <button id="modal-pass-btn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-emerald-500/15 active:scale-[0.98] transition-all flex items-center justify-center space-x-2">
+            <span>Restart Simulator</span>
+          </button>
+        </div>
+
+        <!-- Loss (FAILED) Card -->
+        <div id="modal-failed-card" class="glass-panel border-rose-500/30 rounded-3xl p-8 max-w-md w-full mx-4 text-center transform scale-95 transition-transform duration-300 hidden">
+          <div class="w-20 h-20 mx-auto rounded-full bg-rose-500/10 border-2 border-rose-500 flex items-center justify-center shadow-lg shadow-rose-500/20 mb-6">
+            <svg class="w-10 h-10 text-rose-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+          
+          <h2 class="text-3xl font-extrabold tracking-wider text-rose-400 bg-gradient-to-r from-rose-400 to-pink-500 bg-clip-text text-transparent uppercase mb-2">
+            TEST FAILED
+          </h2>
+          <p id="modal-failed-reason" class="text-slate-400 text-sm mb-6">You violated driving parameters. Please review your performance and try again.</p>
+          
+          <!-- Statistics -->
+          <div class="grid grid-cols-2 gap-3 mb-6 bg-slate-950/50 p-4 rounded-2xl border border-white/5">
+            <div class="text-center">
+              <span class="text-[10px] text-slate-500 uppercase tracking-wider block">Time Remaining</span>
+              <span id="modal-fail-time" class="font-mono text-xl font-semibold text-slate-200">0s</span>
+            </div>
+            <div class="text-center border-l border-white/5">
+              <span class="text-[10px] text-slate-500 uppercase tracking-wider block">Boundaries Crossed</span>
+              <span id="modal-fail-penalties" class="font-mono text-xl font-semibold text-slate-200">0 / 3</span>
+            </div>
+          </div>
+          
+          <button id="modal-fail-btn" class="w-full bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold py-3 px-4 rounded-xl shadow-lg shadow-rose-500/15 active:scale-[0.98] transition-all flex items-center justify-center space-x-2">
+            <span>Try Again</span>
+          </button>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+
+  <!-- Connect core game script -->
+  <script src="game.js"></script>
+</body>
+</html>

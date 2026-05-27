@@ -1354,6 +1354,58 @@ document.getElementById('gear-r').addEventListener('click', () => {
   }
 });
 
+// --- Sidebar Tab Switching Logic ---
+const tabBtnSim = document.getElementById('tab-btn-sim');
+const tabBtnGuide = document.getElementById('tab-btn-guide');
+const simPanel = document.getElementById('sim-panel');
+const guidePanel = document.getElementById('guide-panel');
+
+tabBtnSim.addEventListener('click', () => {
+  tabBtnSim.classList.add('border-orange-500', 'text-orange-500');
+  tabBtnSim.classList.remove('border-transparent', 'text-slate-400');
+  tabBtnGuide.classList.add('border-transparent', 'text-slate-400');
+  tabBtnGuide.classList.remove('border-orange-500', 'text-orange-500');
+  
+  simPanel.classList.remove('hidden');
+  simPanel.classList.add('flex');
+  guidePanel.classList.add('hidden');
+  guidePanel.classList.remove('flex');
+});
+
+tabBtnGuide.addEventListener('click', () => {
+  tabBtnGuide.classList.add('border-orange-500', 'text-orange-500');
+  tabBtnGuide.classList.remove('border-transparent', 'text-slate-400');
+  tabBtnSim.classList.add('border-transparent', 'text-slate-400');
+  tabBtnSim.classList.remove('border-orange-500', 'text-orange-500');
+  
+  guidePanel.classList.remove('hidden');
+  guidePanel.classList.add('flex');
+  simPanel.classList.add('hidden');
+  simPanel.classList.remove('flex');
+  
+  sounds.init();
+});
+
+// --- Study Guide Sub-tab Switching Logic ---
+const subtabs = ['signs', 'fines', 'rights'];
+subtabs.forEach(tab => {
+  document.getElementById(`subtab-btn-${tab}`).addEventListener('click', () => {
+    subtabs.forEach(t => {
+      const btn = document.getElementById(`subtab-btn-${t}`);
+      const content = document.getElementById(`guide-content-${t}`);
+      if (t === tab) {
+        btn.classList.add('bg-orange-500', 'text-white');
+        btn.classList.remove('text-slate-400');
+        content.classList.remove('hidden');
+      } else {
+        btn.classList.remove('bg-orange-500', 'text-white');
+        btn.classList.add('text-slate-400');
+        content.classList.add('hidden');
+      }
+    });
+  });
+});
+
 // --- Initialize and Run ---
 setupCanvasScaling();
 selectTrack('8');

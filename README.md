@@ -24,6 +24,19 @@ The simulator features three distinct tracks, each testing different driving pro
 
 ---
 
+## 📖 RTO Study Guide & Citizen Rights
+
+To maximize the educational benefit, the sidebar includes an interactive **Study Guide** tab containing:
+1. **Traffic Signs Reference**: Vector drawings of standard RTO road signs (Stop, No Entry, Speed Limit 50, Zebra Crossing, No Parking, Silent Zone, One Way, etc.) along with their legal meaning.
+2. **Challan Fines Guide**: Breakdown of official penalties under the Motor Vehicles Act (e.g., Driving without License, Speeding, Drunken Driving, Seatbelt/Helmet violations, Mobile usage).
+3. **Citizen Rights & Protections**: Vital legal facts for drivers stopped in India:
+   - **Challan Authority**: Only a police officer of rank **Sub-Inspector (SI)** or above can collect spot fines. Constables/Head Constables have no authority to issue challans or demand money.
+   - **Digital Documents**: DigiLocker and mParivahan digital documents are 100% legally valid (IT Act, Section 4).
+   - **Ignition Keys**: Snatching keys out of the ignition or deflating tires is illegal.
+   - **Female Driver Protection**: Female drivers cannot be detained or taken to a police station after sunset (6 PM) and before sunrise (6 AM) without a female officer present.
+
+---
+
 ## 🎮 Controls
 
 The simulator supports simultaneous keypresses for fluid maneuvering:

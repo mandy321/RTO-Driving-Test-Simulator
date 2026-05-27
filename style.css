@@ -95,3 +95,11 @@ canvas {
 .btn-transition {
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Responsive Canvas Wrapper */
+.canvas-wrapper {
+  position: relative;
+  width: min(800px, 100%, calc((100vh - 120px) * 1.333));
+  height: auto;
+  aspect-ratio: 4 / 3;
+}

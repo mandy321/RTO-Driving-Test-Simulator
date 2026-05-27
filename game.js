@@ -699,7 +699,7 @@ function updateDashboardHUD() {
   document.getElementById('telemetry-speed').innerText = kmh;
   
   const gauge = document.getElementById('speedometer-gauge');
-  const dashArray = 163; // 2 * PI * r (r=26)
+  const dashArray = 239; // 2 * PI * r (r=38)
   const ratio = Math.min(1, kmh / maxUIKmH);
   const offset = dashArray - (dashArray * ratio);
   gauge.style.strokeDashoffset = offset;

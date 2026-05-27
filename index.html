@@ -21,7 +21,7 @@
   <!-- Custom CSS file -->
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col font-sans select-none">
+<body class="bg-slate-950 text-slate-100 h-screen h-[100dvh] flex flex-col font-sans select-none">
 
   <!-- Header / Navbar (sleek & thin) -->
   <header class="glass-panel border-b border-white/5 py-3 px-6 flex justify-between items-center z-10">
@@ -55,22 +55,22 @@
     <aside class="w-80 lg:w-96 flex-shrink-0 glass-panel border-r border-white/5 p-5 flex flex-col justify-between overflow-y-auto z-10">
       
       <!-- Sidebar Navigation Tabs -->
-      <div class="flex border-b border-white/10 mb-4 text-xs font-bold tracking-wider">
+      <div class="flex border-b border-white/10 mb-4 text-sm font-extrabold tracking-wider">
         <button id="tab-btn-sim" class="flex-1 pb-2.5 text-center border-b-2 border-orange-500 text-orange-500 transition-all">
           TEST SIMULATOR
         </button>
-        <button id="tab-btn-guide" class="flex-1 pb-2.5 text-center border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition-all">
+        <button id="tab-btn-guide" class="flex-1 pb-2.5 text-center border-b-2 border-transparent text-slate-300 hover:text-slate-100 transition-all">
           RTO STUDY GUIDE
         </button>
       </div>
 
       <!-- 1. Simulator Panel -->
-      <div id="sim-panel" class="space-y-5 flex flex-col flex-1 justify-between">
-        <div class="space-y-5">
+      <div id="sim-panel" class="space-y-4 flex flex-col flex-1 justify-between">
+        <div class="space-y-4">
           <!-- Track Selector -->
           <div>
-            <h2 class="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-2 flex items-center space-x-2">
-              <svg class="w-3.5 h-3.5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <h2 class="text-sm font-bold tracking-wider text-slate-300 uppercase mb-2 flex items-center space-x-2">
+              <svg class="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L16 4m0 13V4m0 0L9 7" />
               </svg>
               <span>Select Test Track</span>
@@ -80,11 +80,11 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="flex justify-between items-center">
                   <div>
-                    <h3 class="font-semibold text-xs text-slate-200">8-Track (Figure 8)</h3>
-                    <p class="text-[9px] text-slate-500 mt-0.5">Tests dual-curve continuous steering</p>
+                    <h3 class="font-bold text-[15px] text-slate-100">8-Track (Figure 8)</h3>
+                    <p class="text-xs text-slate-300 mt-0.5 font-medium">Tests dual-curve continuous steering</p>
                   </div>
-                  <div class="w-4.5 h-4.5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-8">
-                    <div class="w-2 h-2 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-8"></div>
+                  <div class="w-5 h-5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-8">
+                    <div class="w-2.5 h-2.5 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-8"></div>
                   </div>
                 </div>
               </button>
@@ -93,10 +93,10 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="flex justify-between items-center">
                   <div>
-                    <h3 class="font-semibold text-xs text-slate-200">H-Track (Reverse S)</h3>
-                    <p class="text-[9px] text-slate-500 mt-0.5">Tests reversing, turning, and pockets</p>
+                    <h3 class="font-bold text-[15px] text-slate-100">H-Track (Reverse S)</h3>
+                    <p class="text-xs text-slate-300 mt-0.5 font-medium">Tests reversing, turning, and pockets</p>
                   </div>
-                  <div class="w-4.5 h-4.5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-H">
+                  <div class="w-5 h-5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-H">
                     <div class="w-2.5 h-2.5 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-H"></div>
                   </div>
                 </div>
@@ -106,10 +106,10 @@
                 <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-amber-500/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                 <div class="flex justify-between items-center">
                   <div>
-                    <h3 class="font-semibold text-xs text-slate-200">Parallel Parking</h3>
-                    <p class="text-[9px] text-slate-500 mt-0.5">Tests maneuvering into tight bay</p>
+                    <h3 class="font-bold text-[15px] text-slate-100">Parallel Parking</h3>
+                    <p class="text-xs text-slate-300 mt-0.5 font-medium">Tests maneuvering into tight bay</p>
                   </div>
-                  <div class="w-4.5 h-4.5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-parking">
+                  <div class="w-5 h-5 rounded-full border-2 border-white/10 flex items-center justify-center group-hover:border-orange-500 transition-colors" id="track-indicator-parking">
                     <div class="w-2.5 h-2.5 rounded-full bg-orange-500 scale-0 transition-transform" id="track-dot-parking"></div>
                   </div>
                 </div>
@@ -119,38 +119,38 @@
 
           <!-- Vehicle Selection -->
           <div>
-            <h2 class="text-[10px] font-bold tracking-wider text-slate-400 uppercase mb-2 flex items-center space-x-2">
-              <svg class="w-3.5 h-3.5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <h2 class="text-sm font-bold tracking-wider text-slate-300 uppercase mb-2 flex items-center space-x-2">
+              <svg class="w-4 h-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
               </svg>
               <span>Select Vehicle Model</span>
             </h2>
             <div class="grid grid-cols-2 gap-2.5">
-              <button id="vehicle-btn-hatchback" class="btn-transition px-3 py-2 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group text-center flex flex-col items-center">
-                <span class="font-semibold text-xs text-slate-200">Hatchback</span>
-                <span class="text-[9px] text-slate-500 mt-0.5 font-mono">Short WB • Agile</span>
+              <button id="vehicle-btn-hatchback" class="btn-transition px-3 py-2.5 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group text-center flex flex-col items-center">
+                <span class="font-bold text-[15px] text-slate-100">Hatchback</span>
+                <span class="text-xs text-slate-300 mt-0.5 font-mono font-semibold">Short WB • Agile</span>
               </button>
-              <button id="vehicle-btn-sedan" class="btn-transition px-3 py-2 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group text-center flex flex-col items-center">
-                <span class="font-semibold text-xs text-slate-200">Sedan</span>
-                <span class="text-[9px] text-slate-500 mt-0.5 font-mono">Long WB • Harder</span>
+              <button id="vehicle-btn-sedan" class="btn-transition px-3 py-2.5 rounded-xl border border-white/10 bg-slate-900/60 hover:bg-slate-900 hover:border-orange-500/40 relative overflow-hidden group text-center flex flex-col items-center">
+                <span class="font-bold text-[15px] text-slate-100">Sedan</span>
+                <span class="text-xs text-slate-300 mt-0.5 font-mono font-semibold">Long WB • Harder</span>
               </button>
             </div>
           </div>
 
           <!-- Live Telemetry & Dashboard -->
-          <div class="glass-panel-light border border-white/5 rounded-2xl p-3.5 space-y-3">
+          <div class="glass-panel-light border border-white/5 rounded-2xl p-4 space-y-3">
             <div class="flex items-center justify-between">
-              <h2 class="text-[10px] font-bold tracking-wider text-slate-400 uppercase">Live Telemetry</h2>
-              <span class="text-[8px] text-orange-500 font-mono tracking-widest uppercase">ACTIVE STREAM</span>
+              <h2 class="text-sm font-bold tracking-wider text-slate-300 uppercase">Live Telemetry</h2>
+              <span class="text-xs text-orange-400 font-mono tracking-widest uppercase font-bold">ACTIVE STREAM</span>
             </div>
 
             <!-- Speed & Gear Row -->
-            <div class="grid grid-cols-2 gap-2.5">
+            <div class="grid grid-cols-2 gap-3">
               <!-- Speedometer -->
-              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-2.5 flex flex-col items-center justify-center relative overflow-hidden h-24">
-                <svg class="w-20 h-20 transform -rotate-90">
-                  <circle cx="40" cy="40" r="32" stroke="rgba(255,255,255,0.05)" stroke-width="4" fill="transparent"/>
-                  <circle id="speedometer-gauge" cx="40" cy="40" r="32" stroke="url(#speed-gradient)" stroke-dasharray="201" stroke-dashoffset="201" stroke-width="4" fill="transparent" class="speedometer-ring" stroke-linecap="round"/>
+              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex flex-col items-center justify-center relative overflow-hidden h-28">
+                <svg class="w-24 h-24 transform -rotate-90">
+                  <circle cx="48" cy="48" r="38" stroke="rgba(255,255,255,0.05)" stroke-width="5" fill="transparent"/>
+                  <circle id="speedometer-gauge" cx="48" cy="48" r="38" stroke="url(#speed-gradient)" stroke-dasharray="239" stroke-dashoffset="239" stroke-width="5" fill="transparent" class="speedometer-ring" stroke-linecap="round"/>
                   <defs>
                     <linearGradient id="speed-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                       <stop offset="0%" stop-color="#f97316"/>
@@ -159,84 +159,102 @@
                   </defs>
                 </svg>
                 <div class="absolute text-center mt-[1px]">
-                  <div id="telemetry-speed" class="font-mono text-xl font-bold leading-none text-slate-100">0</div>
-                  <div class="text-[8px] text-slate-500 uppercase tracking-widest mt-0.5">km/h</div>
+                  <div id="telemetry-speed" class="font-mono text-3xl font-bold leading-none text-slate-100">0</div>
+                  <div class="text-xs text-slate-400 uppercase tracking-widest mt-1 font-bold">km/h</div>
                 </div>
               </div>
 
               <!-- Transmission Gear -->
-              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-2.5 flex flex-col items-center justify-center">
-                <span class="text-[9px] text-slate-500 uppercase tracking-widest mb-1.5">Transmission</span>
-                <div class="flex space-x-2.5 items-center font-mono text-base font-bold">
-                  <div id="gear-d" class="w-7 h-7 rounded-full border border-white/5 flex items-center justify-center text-slate-500 transition-all duration-300">D</div>
-                  <div id="gear-r" class="w-7 h-7 rounded-full border border-white/5 flex items-center justify-center text-slate-500 transition-all duration-300">R</div>
+              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex flex-col items-center justify-center">
+                <span class="text-xs font-bold text-slate-300 uppercase tracking-widest mb-2 text-center">Gear State</span>
+                <div class="flex space-x-3 items-center font-mono text-lg font-bold">
+                  <div id="gear-d" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-slate-500 transition-all duration-300 text-lg font-bold">D</div>
+                  <div id="gear-r" class="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-slate-500 transition-all duration-300 text-lg font-bold">R</div>
                 </div>
               </div>
             </div>
 
             <!-- Time Remaining -->
-            <div class="bg-slate-950/70 border border-white/5 rounded-xl p-2.5 flex justify-between items-center">
+            <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex justify-between items-center">
               <div class="flex flex-col">
-                <span class="text-[9px] text-slate-500 uppercase tracking-widest">Time Remaining</span>
-                <span class="text-[9px] text-slate-500 italic mt-0.5 font-sans">90s limit</span>
+                <span class="text-sm font-bold text-slate-300 uppercase tracking-widest">Time Remaining</span>
+                <span class="text-xs text-slate-400 font-medium mt-0.5">90s test limit</span>
               </div>
-              <div id="telemetry-timer" class="font-mono text-2xl font-bold text-orange-500 tracking-wider">90.0<span class="text-sm">s</span></div>
+              <div id="telemetry-timer" class="font-mono text-3xl font-bold text-orange-500 tracking-wider">90.0<span class="text-lg">s</span></div>
             </div>
 
             <!-- Penalties & Cones -->
-            <div class="space-y-2">
+            <div class="space-y-2.5">
               <!-- Line Crosses -->
-              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-2.5 flex justify-between items-center">
+              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex justify-between items-center">
                 <div class="flex flex-col">
-                  <span class="text-[9px] text-slate-500 uppercase tracking-widest">Line Penalty</span>
-                  <span class="text-[8px] text-red-500/80 font-medium mt-0.5">Max 3 allowed</span>
+                  <span class="text-sm font-bold text-slate-300 uppercase tracking-widest">Line Penalty</span>
+                  <span class="text-xs text-red-400 font-semibold mt-0.5">Max 3 allowed</span>
                 </div>
                 <div class="flex space-x-1.5">
-                  <div id="penalty-led-1" class="w-5 h-5 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-[10px] font-bold text-red-900 transition-all duration-300">1</div>
-                  <div id="penalty-led-2" class="w-5 h-5 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-[10px] font-bold text-red-900 transition-all duration-300">2</div>
-                  <div id="penalty-led-3" class="w-5 h-5 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-[10px] font-bold text-red-900 transition-all duration-300">3</div>
+                  <div id="penalty-led-1" class="w-7 h-7 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-sm font-bold text-red-900 transition-all duration-300">1</div>
+                  <div id="penalty-led-2" class="w-7 h-7 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-sm font-bold text-red-900 transition-all duration-300">2</div>
+                  <div id="penalty-led-3" class="w-7 h-7 rounded-full bg-red-950 border border-red-800/30 flex items-center justify-center text-sm font-bold text-red-900 transition-all duration-300">3</div>
                 </div>
               </div>
 
               <!-- Cone Hits -->
-              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-2.5 flex justify-between items-center">
+              <div class="bg-slate-950/70 border border-white/5 rounded-xl p-3 flex justify-between items-center">
                 <div>
-                  <span class="text-[9px] text-slate-500 uppercase tracking-widest">Cone Collisions</span>
-                  <span class="text-[8px] text-orange-500/80 font-medium block mt-0.5">Instant failure</span>
+                  <span class="text-sm font-bold text-slate-300 uppercase tracking-widest">Cone Collisions</span>
+                  <span class="text-xs text-orange-400 font-semibold block mt-0.5">Instant failure</span>
                 </div>
-                <div id="telemetry-cones" class="font-mono text-lg font-bold text-slate-400">0</div>
+                <div id="telemetry-cones" class="font-mono text-2xl font-bold text-slate-200">0</div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Footer / Actions -->
-        <div class="space-y-3.5 pt-3.5 border-t border-white/5 mt-auto">
-          <button id="restart-btn" class="w-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-semibold py-2.5 px-4 rounded-xl shadow-lg shadow-orange-500/10 hover:shadow-orange-500/20 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 text-xs">
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <div class="space-y-4 pt-4 border-t border-white/5 mt-auto">
+          <button id="restart-btn" class="w-full bg-gradient-to-r from-orange-500 to-amber-600 hover:from-orange-600 hover:to-amber-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg shadow-orange-500/10 hover:shadow-orange-500/20 active:scale-[0.98] transition-all flex items-center justify-center space-x-2 text-base uppercase tracking-wider">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
             </svg>
             <span>Restart Simulator (R)</span>
           </button>
 
-          <div class="text-[10px] text-slate-500 leading-relaxed bg-slate-950/40 p-2.5 rounded-lg border border-white/5">
-            <div class="font-semibold text-slate-400 mb-1 flex items-center space-x-1">
-              <svg class="w-3.5 h-3.5 text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <!-- Keyboard Controls Informational Panel (High Contrast, Legible Keys) -->
+          <div class="text-sm text-slate-200 leading-relaxed bg-slate-900/90 p-4 rounded-xl border border-white/10 shadow-inner">
+            <div class="font-extrabold text-orange-400 mb-2.5 flex items-center space-x-1.5 text-sm tracking-wider uppercase">
+              <svg class="w-5 h-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <span>Keyboard Controls</span>
             </div>
-            <div class="grid grid-cols-2 gap-x-2 gap-y-0.5 font-mono">
-              <div><span class="text-slate-400 font-sans font-bold">↑ / W</span> : Gas</div>
-              <div><span class="text-slate-400 font-sans font-bold">↓ / S</span> : Brake</div>
-              <div><span class="text-slate-400 font-sans font-bold">← / A</span> : Steer L</div>
-              <div><span class="text-slate-400 font-sans font-bold">→ / D</span> : Steer R</div>
+            
+            <div class="grid grid-cols-2 gap-y-2.5 gap-x-3 text-sm mb-3 font-semibold text-slate-200">
+              <div class="flex items-center space-x-1">
+                <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">W</kbd> or <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">↑</kbd>
+                <span class="pl-1 text-slate-300 font-sans">: Gas</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">S</kbd> or <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">↓</kbd>
+                <span class="pl-1 text-slate-300 font-sans">: Brake</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">A</kbd> or <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">←</kbd>
+                <span class="pl-1 text-slate-300 font-sans">: Steer L</span>
+              </div>
+              <div class="flex items-center space-x-1">
+                <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">D</kbd> or <kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded font-mono font-extrabold text-amber-400 shadow-md">→</kbd>
+                <span class="pl-1 text-slate-300 font-sans">: Steer R</span>
+              </div>
             </div>
-            <div class="mt-1 pt-1 border-t border-white/5 flex justify-between text-[9px]">
-              <span>Spacebar : Brake</span>
-              <span>Shift : Gear Toggle</span>
+            
+            <div class="mt-2.5 pt-2.5 border-t border-white/10 flex justify-between text-xs font-bold text-slate-300">
+              <span class="flex items-center"><kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded text-amber-400 font-extrabold mr-1.5">Space</kbd> Brake</span>
+              <span class="flex items-center"><kbd class="px-2 py-0.5 bg-slate-950 border border-white/20 rounded text-amber-400 font-extrabold mr-1.5">Shift</kbd> Gear</span>
             </div>
           </div>
+          
+          <!-- Spacer at bottom to guarantee element visibility in short screens -->
+          <div class="h-6"></div>
         </div>
       </div>
 
@@ -244,14 +262,14 @@
       <div id="guide-panel" class="hidden flex flex-col flex-1 space-y-4">
         
         <!-- Category Navigation Buttons -->
-        <div class="flex space-x-1.5 p-1 bg-slate-950/80 rounded-xl border border-white/5 text-[10px] font-bold uppercase tracking-wider">
+        <div class="flex space-x-1.5 p-1.5 bg-slate-950/90 rounded-xl border border-white/5 text-xs font-extrabold uppercase tracking-wider">
           <button id="subtab-btn-signs" class="flex-1 py-2 px-1 text-center rounded-lg bg-orange-500 text-white transition-all shadow-md">
             Signs
           </button>
-          <button id="subtab-btn-fines" class="flex-1 py-2 px-1 text-center rounded-lg text-slate-400 hover:text-slate-200 transition-all">
+          <button id="subtab-btn-fines" class="flex-1 py-2 px-1 text-center rounded-lg text-slate-300 hover:text-slate-100 transition-all">
             Fines
           </button>
-          <button id="subtab-btn-rights" class="flex-1 py-2 px-1 text-center rounded-lg text-slate-400 hover:text-slate-200 transition-all">
+          <button id="subtab-btn-rights" class="flex-1 py-2 px-1 text-center rounded-lg text-slate-300 hover:text-slate-100 transition-all">
             Rights
           </button>
         </div>
@@ -260,12 +278,12 @@
         <div class="flex-1 overflow-y-auto space-y-4 pr-1 text-slate-300">
           
           <!-- Sub-Panel: Traffic Signs -->
-          <div id="guide-content-signs" class="space-y-3">
-            <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Official RTO Signs</h3>
+          <div id="guide-content-signs" class="space-y-3.5">
+            <h3 class="text-xs font-bold text-slate-300 uppercase tracking-widest mb-1.5">Official RTO Signs</h3>
             
             <div class="grid grid-cols-1 gap-2.5">
               <!-- Sign 1: Stop -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <polygon points="30,5 70,5 95,30 95,70 70,95 30,95 5,70 5,30" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
@@ -273,13 +291,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">Stop Sign</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Mandatory: Halt completely before crossing the intersection line.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">Stop Sign</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Mandatory: Halt completely before crossing the intersection line.</p>
                 </div>
               </div>
 
               <!-- Sign 2: No Entry -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="#ef4444" stroke="#ffffff" stroke-width="3"/>
@@ -287,13 +305,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">No Entry</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Mandatory: Entry prohibited for all vehicles in this direction.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">No Entry</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Mandatory: Entry prohibited for all vehicles in this direction.</p>
                 </div>
               </div>
 
               <!-- Sign 3: Speed Limit 50 -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#ef4444" stroke-width="8"/>
@@ -301,13 +319,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">Speed Limit (50)</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Mandatory: Driving above 50 km/h is a punishable offense.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">Speed Limit (50)</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Mandatory: Driving above 50 km/h is a punishable offense.</p>
                 </div>
               </div>
 
               <!-- Sign 4: No Parking -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="#1e3a8a" stroke="#ef4444" stroke-width="8"/>
@@ -315,13 +333,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">No Parking</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Mandatory: Parking vehicles in this designated zone is prohibited.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">No Parking</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Mandatory: Parking vehicles in this designated zone is prohibited.</p>
                 </div>
               </div>
 
               <!-- Sign 5: One Way (Right Only) -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="#3b82f6" stroke="#ffffff" stroke-width="3"/>
@@ -329,13 +347,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">One Way Traffic</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Mandatory: Traffic is permitted only in the direction of the arrow.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">One Way Traffic</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Mandatory: Traffic is permitted only in the direction of the arrow.</p>
                 </div>
               </div>
 
               <!-- Sign 6: Zebra Crossing -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <rect x="5" y="5" width="90" height="90" fill="#3b82f6" rx="8" stroke="#ffffff" stroke-width="2"/>
@@ -346,13 +364,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">Zebra Crossing</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Cautionary: Give way to pedestrians walking on the zebra lanes.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">Zebra Crossing</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Cautionary: Give way to pedestrians walking on the zebra lanes.</p>
                 </div>
               </div>
 
               <!-- Sign 7: Narrow Bridge -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <polygon points="50,10 90,85 10,85" fill="#ffffff" stroke="#ef4444" stroke-width="6" stroke-linejoin="round"/>
@@ -360,13 +378,13 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">Narrow Bridge</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Cautionary: Road narrows ahead. Drive slowly and wait for oncoming vehicles.</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">Narrow Bridge</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Cautionary: Road narrows ahead. Drive slowly and wait for oncoming vehicles.</p>
                 </div>
               </div>
 
               <!-- Sign 8: Silent Zone -->
-              <div class="flex items-center space-x-3 bg-slate-900/50 p-2.5 rounded-xl border border-white/5">
+              <div class="flex items-center space-x-3.5 bg-slate-900/60 p-3 rounded-xl border border-white/5">
                 <div class="flex-shrink-0">
                   <svg class="w-10 h-10" viewBox="0 0 100 100">
                     <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#ef4444" stroke-width="8"/>
@@ -376,114 +394,114 @@
                   </svg>
                 </div>
                 <div>
-                  <h4 class="text-xs font-bold text-slate-200 uppercase">Silent Zone</h4>
-                  <p class="text-[10px] text-slate-400 leading-normal">Mandatory: Sounding horns is prohibited (near hospitals/schools).</p>
+                  <h4 class="text-sm font-bold text-slate-100 uppercase">Silent Zone</h4>
+                  <p class="text-xs text-slate-300 leading-normal mt-0.5">Mandatory: Sounding horns is prohibited (near hospitals/schools).</p>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Sub-Panel: Challan Fines -->
-          <div id="guide-content-fines" class="space-y-3 hidden">
-            <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Motor Vehicle Act Fines</h3>
-            <p class="text-[10px] text-slate-400 leading-relaxed mb-1">Key penalties and spot challans under the latest Motor Vehicles Amendment Act:</p>
+          <div id="guide-content-fines" class="space-y-3.5 hidden">
+            <h3 class="text-sm font-bold text-slate-300 uppercase tracking-widest mb-1.5">Motor Vehicle Act Fines</h3>
+            <p class="text-sm text-slate-200 leading-relaxed mb-2.5">Key penalties and spot challans under the latest Motor Vehicles Amendment Act:</p>
             
-            <div class="space-y-2">
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <div class="flex justify-between items-center text-xs font-bold text-slate-200">
+            <div class="space-y-2.5">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1">
+                <div class="flex justify-between items-center text-sm font-bold text-slate-100">
                   <span>Driving Without License</span>
-                  <span class="text-rose-400 font-mono">₹5,000</span>
+                  <span class="text-rose-400 font-mono font-extrabold text-sm">₹5,000</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Also includes driving with an expired or suspended license.</p>
+                <p class="text-xs text-slate-300 font-medium">Also includes driving with an expired or suspended license.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <div class="flex justify-between items-center text-xs font-bold text-slate-200">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1">
+                <div class="flex justify-between items-center text-sm font-bold text-slate-100">
                   <span>Over-speeding (LMV)</span>
-                  <span class="text-rose-400 font-mono">₹1,000 - ₹2,000</span>
+                  <span class="text-rose-400 font-mono font-extrabold text-sm">₹1,000 - ₹2,000</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Fines vary depending on the category of vehicle (larger vehicles: ₹2,000 - ₹4,000).</p>
+                <p class="text-xs text-slate-300 font-medium">Fines vary depending on the category of vehicle (larger vehicles: ₹2,000 - ₹4,000).</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <div class="flex justify-between items-center text-xs font-bold text-slate-200">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1">
+                <div class="flex justify-between items-center text-sm font-bold text-slate-100">
                   <span>Drunken Driving</span>
-                  <span class="text-rose-400 font-mono">₹10,000 + Jail</span>
+                  <span class="text-rose-400 font-mono font-extrabold text-sm">₹10,000 + Jail</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Includes imprisonment of up to 6 months for the first offence, and ₹15,000 + 2 years for subsequent.</p>
+                <p class="text-xs text-slate-300 font-medium">Includes imprisonment of up to 6 months for the first offence, and ₹15,000 + 2 years for subsequent.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <div class="flex justify-between items-center text-xs font-bold text-slate-200">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1">
+                <div class="flex justify-between items-center text-sm font-bold text-slate-100">
                   <span>Jumping Red Light</span>
-                  <span class="text-rose-400 font-mono">₹1,000 - ₹5,000</span>
+                  <span class="text-rose-400 font-mono font-extrabold text-sm">₹1,000 - ₹5,000</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Along with license suspension of up to 3 months.</p>
+                <p class="text-xs text-slate-300 font-medium">Along with license suspension of up to 3 months.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <div class="flex justify-between items-center text-xs font-bold text-slate-200">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1">
+                <div class="flex justify-between items-center text-sm font-bold text-slate-100">
                   <span>No Seatbelt / No Helmet</span>
-                  <span class="text-rose-400 font-mono">₹1,000</span>
+                  <span class="text-rose-400 font-mono font-extrabold text-sm">₹1,000</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Helmet offense also attracts a 3-month license suspension.</p>
+                <p class="text-xs text-slate-300 font-medium">Helmet offense also attracts a 3-month license suspension.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <div class="flex justify-between items-center text-xs font-bold text-slate-200">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1">
+                <div class="flex justify-between items-center text-sm font-bold text-slate-100">
                   <span>Mobile Phone Usage</span>
-                  <span class="text-rose-400 font-mono">₹1,000 - ₹5,000</span>
+                  <span class="text-rose-400 font-mono font-extrabold text-sm">₹1,000 - ₹5,000</span>
                 </div>
-                <p class="text-[10px] text-slate-500">Applies to handheld use while driving. Excludes hands-free navigations if securely mounted.</p>
+                <p class="text-xs text-slate-300 font-medium">Applies to handheld use while driving. Excludes hands-free navigations if securely mounted.</p>
               </div>
             </div>
           </div>
 
           <!-- Sub-Panel: Citizen Rights -->
-          <div id="guide-content-rights" class="space-y-3 hidden">
-            <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">Your Rights (Know the Law)</h3>
+          <div id="guide-content-rights" class="space-y-3.5 hidden">
+            <h3 class="text-sm font-bold text-slate-300 uppercase tracking-widest mb-1.5">Your Rights (Know the Law)</h3>
             
-            <div class="space-y-2.5">
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <h4 class="text-xs font-bold text-orange-400 flex items-center space-x-1.5">
+            <div class="space-y-3">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1.5">
+                <h4 class="text-sm font-bold text-orange-400 flex items-center space-x-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                   <span>Who can issue a challan?</span>
                 </h4>
-                <p class="text-[10px] text-slate-300 leading-normal">Only a traffic police officer of the rank of **Sub-Inspector (SI)** or above can issue a spot fine (challan).</p>
-                <p class="text-[9px] text-slate-500 italic">Constables and Head Constables only assist. They cannot demand fine money or write challans. If a constable stops you, ask them to call their senior officer.</p>
+                <p class="text-sm text-slate-200 leading-normal">Only a traffic police officer of the rank of **Sub-Inspector (SI)** or above can issue a spot fine (challan).</p>
+                <p class="text-xs text-slate-300 italic">Constables and Head Constables only assist. They cannot demand fine money or write challans. If a constable stops you, ask them to call their senior officer.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <h4 class="text-xs font-bold text-orange-400 flex items-center space-x-1.5">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1.5">
+                <h4 class="text-sm font-bold text-orange-400 flex items-center space-x-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                   <span>Digital Documents are Valid</span>
                 </h4>
-                <p class="text-[10px] text-slate-300 leading-normal">You are **not required** to carry physical copies of your DL, RC, Insurance, or PUC. Showing them on government-approved apps like **DigiLocker** or **mParivahan** is 100% legally valid (IT Act, Section 4).</p>
+                <p class="text-sm text-slate-200 leading-normal">You are **not required** to carry physical copies of your DL, RC, Insurance, or PUC. Showing them on government-approved apps like **DigiLocker** or **mParivahan** is 100% legally valid (IT Act, Section 4).</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <h4 class="text-xs font-bold text-orange-400 flex items-center space-x-1.5">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1.5">
+                <h4 class="text-sm font-bold text-orange-400 flex items-center space-x-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                   <span>Challan Official Receipts</span>
                 </h4>
-                <p class="text-[10px] text-slate-300 leading-normal">Never hand over cash without receiving an **official printed receipt** from the RTO or Traffic Police department. If they demand spot cash but cannot provide a receipt, ask for a court challan instead.</p>
+                <p class="text-sm text-slate-200 leading-normal">Never hand over cash without receiving an **official printed receipt** from the RTO or Traffic Police department. If they demand spot cash but cannot provide a receipt, ask for a court challan instead.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <h4 class="text-xs font-bold text-orange-400 flex items-center space-x-1.5">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1.5">
+                <h4 class="text-sm font-bold text-orange-400 flex items-center space-x-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                   <span>Confiscation Protections</span>
                 </h4>
-                <p class="text-[10px] text-slate-300 leading-normal">A police officer **cannot** forcefully snatch the keys out of your ignition, deflate your tires, or physically drag you out of your vehicle. Doing so constitutes an abuse of authority.</p>
+                <p class="text-sm text-slate-200 leading-normal">A police officer **cannot** forcefully snatch the keys out of your ignition, deflate your tires, or physically drag you out of your vehicle. Doing so constitutes an abuse of authority.</p>
               </div>
 
-              <div class="bg-slate-900/50 p-3 rounded-xl border border-white/5 space-y-1">
-                <h4 class="text-xs font-bold text-orange-400 flex items-center space-x-1.5">
+              <div class="bg-slate-900/50 p-3.5 rounded-xl border border-white/5 space-y-1.5">
+                <h4 class="text-sm font-bold text-orange-400 flex items-center space-x-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                   <span>Detainment & Female Drivers</span>
                 </h4>
-                <p class="text-[10px] text-slate-300 leading-normal">If detaining or arresting you, the police must produce you before a magistrate within 24 hours.</p>
-                <p class="text-[9px] text-slate-500 italic">Crucially, female drivers cannot be detained or taken to the police station after sunset (6 PM) and before sunrise (6 AM) without a female officer present.</p>
+                <p class="text-sm text-slate-200 leading-normal">If detaining or arresting you, the police must produce you before a magistrate within 24 hours.</p>
+                <p class="text-xs text-slate-300 italic">Crucially, female drivers cannot be detained or taken to the police station after sunset (6 PM) and before sunrise (6 AM) without a female officer present.</p>
               </div>
             </div>
           </div>

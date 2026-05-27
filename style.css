@@ -6,6 +6,8 @@ body {
   background-color: #020617; /* bg-slate-950 */
   color: #f8fafc; /* text-slate-50 */
   overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
 }
 
 .font-mono {
@@ -99,7 +101,7 @@ canvas {
 /* Responsive Canvas Wrapper */
 .canvas-wrapper {
   position: relative;
-  width: min(800px, 100%, calc((100vh - 120px) * 1.333));
+  width: min(1100px, 100%, calc((100vh - 110px) * 1.333));
   height: auto;
   aspect-ratio: 4 / 3;
 }
